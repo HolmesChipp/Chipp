@@ -44,32 +44,26 @@
             height: auto;
         }
     </style>
+</head>
+<body>
+    <h1>Chọn ngày đi em iuuuu</h1>
+    <input type="date" id="datePicker" class="date-input">
+    <button class="submit-button" onclick="saveData()">Gửi</button>
+
+    <!-- Ảnh Getout.jpg -->
+    <img src="Getout.jpg" alt="Get Out" class="footer-image">
+
     <script>
-        function downloadTxtFile() {
+        function saveData() {
             var date = document.getElementById('datePicker').value;
             if (date) {
-                var blob = new Blob([date], { type: 'text/plain' });
-                var url = URL.createObjectURL(blob);
-                var a = document.createElement("a");
-                a.href = url;
-                a.download = "Date.txt";
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                URL.revokeObjectURL(url);
-                window.location.href = "page4.html"; // Chuyển đến trang 4
+                // Lưu dữ liệu vào LocalStorage
+                localStorage.setItem('selectedDate', date);
+                alert('Đã lưu ngày thành công!');
             } else {
                 alert("Vui lòng chọn ngày trước khi gửi!");
             }
         }
     </script>
-</head>
-<body>
-    <h1>Chọn ngày đi em iuuuu</h1>
-    <input type="date" id="datePicker" class="date-input">
-    <button class="submit-button" onclick="downloadTxtFile()">Gửi</button>
-
-    <!-- Ảnh Getout.jpg -->
-    <img src="Getout.jpg" alt="Get Out" class="footer-image">
 </body>
 </html>
